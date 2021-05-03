@@ -19,9 +19,9 @@ namespace MathQuiz
         }
 
 
-
         Random randomizer = new Random();
 
+        // Fill in the addition Problems. 
         int addend1;
         int addend2;
 
