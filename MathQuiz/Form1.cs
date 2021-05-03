@@ -18,6 +18,8 @@ namespace MathQuiz
             dateTime.Text = DateTime.Now.ToString("D");
         }
 
+
+
         Random randomizer = new Random();
 
         int addend1;
