@@ -12,6 +12,8 @@ namespace ConsoleApplication
             widthString = Console.ReadLine();
             width = double.Parse(widthString);
 
+
+
             heightString = Console.ReadLine();
             height = double.Parse(heightString);
 
