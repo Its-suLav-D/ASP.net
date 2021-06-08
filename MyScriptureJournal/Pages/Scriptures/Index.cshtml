@@ -1,0 +1,128 @@
+@page
+@model MyScriptureJournal.Pages.Scriptures.IndexModel
+
+@{ ViewData["Title"] = "Index"; }
+
+
+
+
+
+<!-- Apply your Parallax background image here -->
+<div class="gradient-overlay-half-white-v1 bg-img-hero rounded-lg"
+     style='        background-image: url(https://images.unsplash.com/photo-1600977800945-67cb54e3716d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80);'>
+    <div class="container position-relative z-index-2 space-2-top space-3-bottom space-4--lg">
+        <div class="row justify-content-lg-between align-items-lg-center align-items-center">
+            <div class="col-lg-10 mb-9 mb-lg-0">
+                <!-- Description -->
+                <div class="mb-5 text-light">
+                    <span class="d-block text-uppercase mb-2">Welcome to my Scripture Journal</span>
+                    <h3 class="display-4 font-size-48--md-down">My Scripture Journal</h3>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card p-2 mb-3">
+                    <!-- Input Group -->
+                    <form id="form">
+                        <div class="row"></div>
+                        <div class="form-row input-group-borderless">
+                            <div class="col-md mb-2 mb-md-0">
+
+                                <input type="text" asp-for="SearchBook" class="form-control" placeholder="Book" />
+                            </div>
+
+                            <div class="col-md d-sm-none">
+                                <hr class="my-0" />
+                            </div>
+
+                            <div class="col-md column-divider-sm mb-2 mb-md-0">
+                                <input type="text" asp-for="Keyword" class="form-control" placeholder="Keyword" />
+
+                            </div>
+
+
+                            <div class="col-md-auto">
+                                <input type="submit" class="btn btn-block btn-outline-primary px-5" value="Filter" />
+                            </div>
+                            <div class="col-md-auto">
+
+                                <a asp-page="Create" class="btn btn-block btn-info">Create New</a>
+                            </div>
+                        </div>
+                        <!-- End Input Group -->
+                    </form>
+                </div>
+                <!-- End Card -->
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- End Hero Section -->
+
+
+
+<div class="container my-2">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="d-flex align-items-center">
+                    <a asp-route-sortOrder="@Model.BookSort" class="mx-1">
+                        @Html.DisplayNameFor(model => model.Scripture[0].Book)
+                    </a>
+                    <i class="fas fa-sort"></i>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Scripture[0].Chapter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Scripture[0].Verses)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Scripture[0].Notes)
+                </th>
+                <th class="d-flex align-items-center">
+                    <a asp-route-sortOrder="@Model.DateSort" class="mx-1">
+                        @Html.DisplayNameFor(model => model.Scripture[0].CreatedDate)
+                    </a>
+                    <i class="fas fa-sort"></i>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Scripture)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Book)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Chapter)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Verses)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Notes)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedDate)
+    </td>
+    <td>
+        <a asp-page="./Edit" asp-route-id="@item.ScriptureId">Edit</a> |
+        <a asp-page="./Details" asp-route-id="@item.ScriptureId">Details</a> |
+        <a asp-page="./Delete" asp-route-id="@item.ScriptureId">Delete</a>
+    </td>
+</tr>}
+        </tbody>
+    </table>
+
+</div>
