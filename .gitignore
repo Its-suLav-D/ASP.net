@@ -402,4 +402,8 @@ ASALocalRun/
 .mfractor/
 
 # Local History for Visual Studio
+<<<<<<< HEAD
 .localhistory/
+=======
+.localhistory/
+>>>>>>> 8fbc6706082914a0c6eeb9887dc376e5d53c31a3
